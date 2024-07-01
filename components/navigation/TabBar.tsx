@@ -1,25 +1,12 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { TabBarIcon } from "./TabBarIcon";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { StyleSheet, View } from "react-native";
+import TabBarButton from "./TabBarButton";
 
 type Props = {};
 
 export default function TabBar({ state, descriptors, navigation }) {
   const primaryColor = "#0892b2";
   const greyColor = "#737373";
-  const Icons = {
-    home: (props) => <TabBarIcon name="home" {...props} />,
-    chat: (props) => (
-      <TabBarIcon name="chatbubble-ellipses-outline" {...props} />
-    ),
-    account: (props) => (
-      <MaterialCommunityIcons
-        name="account-circle-outline"
-        size={28}
-        {...props}
-      />
-    ),
-  };
+
   return (
     <View style={styles.tabBar}>
       {state.routes.map((route, index) => {
@@ -53,29 +40,32 @@ export default function TabBar({ state, descriptors, navigation }) {
             target: route.key,
           });
         };
-
         return (
-          <TouchableOpacity
+          <TabBarButton
             key={route.name}
-            accessibilityRole="button"
-            accessibilityState={isFocused ? { selected: true } : {}}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarTestID}
+            color={isFocused ? primaryColor : greyColor}
+            label={label.toUpperCase()}
+            isFocused={isFocused}
+            routeName={route.name}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={styles.tabBarItem}
-          >
-            {Icons[route.name]({ color: isFocused ? primaryColor : greyColor })}
-            <Text
-              style={{
-                color: isFocused ? primaryColor : greyColor,
-                fontWeight: 700,
-              }}
-            >
-              {label.toUpperCase()}
-            </Text>
-          </TouchableOpacity>
+          />
         );
+        // return (
+        //   <TouchableOpacity
+        //     key={route.name}
+        //     accessibilityRole="button"
+        //     accessibilityState={isFocused ? { selected: true } : {}}
+        //     accessibilityLabel={options.tabBarAccessibilityLabel}
+        //     testID={options.tabBarTestID}
+        //     onPress={onPress}
+        //     onLongPress={onLongPress}
+        //     style={styles.tabBarItem}
+        //   >
+
+        //     {Icons[route.name]({ color: isFocused ? primaryColor : greyColor })}
+        //   </TouchableOpacity>
+        // );
       })}
     </View>
   );
