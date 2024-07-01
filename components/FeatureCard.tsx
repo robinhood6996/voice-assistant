@@ -4,11 +4,12 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 type Props = {
   title: string;
   description: string;
+  color: string;
 };
 
-const FeatureCard = ({ title, description }: Props) => {
+const FeatureCard = ({ title, description, color }: Props) => {
   return (
-    <View style={style.featureCard}>
+    <View style={{ ...style.featureCard, backgroundColor: color }}>
       <View>
         <Text style={{ fontSize: wp(6), fontWeight: "600" }}>{title}</Text>
       </View>
@@ -21,7 +22,6 @@ const FeatureCard = ({ title, description }: Props) => {
 
 const style = StyleSheet.create({
   featureCard: {
-    backgroundColor: "#9CEFC8",
     padding: 5,
     height: wp(40),
     margin: 10,
