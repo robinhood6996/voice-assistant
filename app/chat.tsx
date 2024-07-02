@@ -1,6 +1,8 @@
 import FeatureCard from "@/components/FeatureCard";
 import { SafeAreaView, Text, View } from "react-native";
-
+import chatGPT from "../assets/images/chatgpt.png";
+import dalle from "../assets/images/dalle.png";
+import smartai from "../assets/images/smart-ai.png";
 type Props = {};
 
 const Chat = (props: Props) => {
@@ -24,6 +26,7 @@ const Chat = (props: Props) => {
           enables users to refine and steer a conversation towards a desired
           length, format, style, level of detail, and language."
           color="#9CEFC8"
+          image={chatGPT}
         />
         <FeatureCard
           title="DALL-E"
@@ -32,6 +35,7 @@ const Chat = (props: Props) => {
           enables users to refine and steer a conversation towards a desired
           length, format, style, level of detail, and language."
           color="#E5CEFE"
+          image={dalle}
         />
         <FeatureCard
           title="Smart AI"
@@ -40,6 +44,7 @@ const Chat = (props: Props) => {
           enables users to refine and steer a conversation towards a desired
           length, format, style, level of detail, and language."
           color="#96EAF4"
+          image={smartai}
         />
       </SafeAreaView>
     </>
