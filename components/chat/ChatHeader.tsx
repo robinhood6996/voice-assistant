@@ -13,6 +13,8 @@ const ChatHeader = (props: Props) => {
         justifyContent: "space-between",
         gap: 4,
         alignItems: "center",
+        borderBottomColor: "#D8D8D8",
+        borderBottomWidth: 1,
       }}
     >
       <View
