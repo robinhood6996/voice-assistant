@@ -74,14 +74,14 @@ export default function TabBar({ state, descriptors, navigation }) {
 const styles = StyleSheet.create({
   tabBar: {
     position: "absolute",
-    bottom: 25,
+    bottom: 0,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "white",
-    marginHorizontal: 20,
+    // marginHorizontal: 20,
     paddingVertical: 15,
-    borderRadius: 25,
+    // borderRadius: 25,
     borderCurve: "continuous",
     shadowColor: "black",
     shadowOffset: { width: 0, height: 10 },
